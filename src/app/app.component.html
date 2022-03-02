@@ -1,0 +1,83 @@
+<h1>{{ title }}</h1>
+
+<!-- add new -->
+<div>
+  <input type="text" [(ngModel)]="name" style="margin-right: 10px" />
+  <button class="btn btn-primary" (click)="addNew()">Add</button>
+</div>
+
+<!-- edit -->
+<!-- <div *ngIf="!editMode">
+  <input type="text" [(ngModel)]="editName" style="margin-right: 10px" />
+  <button class="btn btn-primary" (click)="update()">U</button>
+</div> -->
+
+<ul class="list-group">
+  <li class="list-group-item" *ngFor="let fruit of fruits; let i = index">
+    {{ fruit }}
+    <button class="btn btn-danger" (click)="onDel(i)">Delete</button>
+    <!-- <button class="btn btn-dark" style="margin-left: 10px">Edit</button> -->
+  </li>
+  <!-- </ul>
+<ol>
+  <li *ngFor="let item of data">{{ item.name }}</li>
+</ol>
+<ol>
+  <li *ngFor="let item of data">{{ item.company }}</li>
+</ol>
+<ol>
+  <li *ngFor="let item of data">{{ item.email }}</li>
+</ol> -->
+
+  <!-- <div class="container">
+  <div class="row">
+    <div class="col-sm-6 col-md-4 col-lg-3">One of three columns</div>
+    <div class="col-sm-6 col-md-4 col-lg-3">One of three columns</div>
+    <div class="col-sm-6 col-md-4 col-lg-3">One of three columns</div>
+  </div>
+</div> -->
+  <div class="container">
+    <div class="row" style="display: flex">
+      <div
+        *ngFor="let item of data; let i = index"
+        class="col-md-4 col-lg-3"
+        style="margin-bottom: 1em"
+      >
+        <div class="card">
+          <img src="{{ item.picture }}" class="card-img-top" alt="..." />
+          <div class="card-body">
+            <h2 class="card-title">{{ item.name }}</h2>
+            <h5 class="card-title">{{ item.company }}</h5>
+            <h5 class="card-title">{{ item.phone }}</h5>
+            <p class="card-text">{{ item.email }}</p>
+            <!-- <a href="#" class="btn btn-primary">Edit</a>
+            <a href="#" class="btn btn-info">View</a> -->
+            <a href="#" class="btn btn-danger" (click)="deleteRecord(i)"
+              >Delete</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ul>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Company</th>
+      <th>Phone</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tr *ngFor="let item of data; let i = index">
+    <td>{{ i + 1 }}</td>
+    <td>{{ item.name }}</td>
+    <td>{{ item.company }}</td>
+    <td>{{ item.phone }}</td>
+    <td>
+      <button class="btn btn-danger" (click)="deleteRecord(i)">Delete</button>
+    </td>
+  </tr>
+</table>
